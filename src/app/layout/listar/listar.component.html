@@ -1,0 +1,60 @@
+
+<div class="container">
+  <div class="card">
+    <div class="card-header">
+
+        <div class="form-inline">
+          <div class="form-group mb-2">
+            <label><b>DEPARTAMENTOS &nbsp;&nbsp;&nbsp;</b> </label>
+          </div>
+          <div class="form-group mx-sm-3 mb-2">
+            <input type="text" class="form-control" placeholder="Buscar" [(ngModel)]="busqueda">
+          </div>
+          
+        </div>
+
+    </div>
+    <div class="card-body">
+      <table class="table table-hover">
+        <thead>
+          <tr class="text-center">
+            <th>NOMBRE</th>
+            <th>SEDE</th>
+            <th>TIPO</th>
+            <th>PISO</th>
+            <th>SECCION</th>
+            <th>CODIGO</th>
+            <th><img src="../../assets/img/silla.png" alt="..."></th>
+            <th><img src="../../assets/img/mesa.png" alt="..."></th>
+            <th><img src="../../assets/img/pizarra.png" alt="..."></th>
+            <th><img src="../../assets/img/proyector.png" alt="..."></th>
+            <th><img src="../../assets/img/computadora.png" alt="..."></th>
+            <th>ACCIONES</th>
+          </tr>
+        </thead>
+        <tbody>
+
+          <tr *ngFor="let asignacion of asignaciones | filter:{nombre: busqueda,tipo: busqueda, sede: busqueda,seccion: busqueda,numsillas:busqueda,nummesas:busqueda,numpizarras:busqueda,numinfocus:busqueda,numcomputadoras:busqueda} : false" > 
+            <td >{{asignacion.nombre}}</td>
+            <td>{{asignacion.sede}}</td>
+            <td>{{asignacion.tipo}}</td>
+            <td>{{asignacion.piso}}</td>
+            <td>{{asignacion.seccion}}</td>
+            <td>{{asignacion.codigo}}</td>
+            <td>{{asignacion.numsillas}}</td>
+            <td>{{asignacion.nummesas}}</td>
+            <td>{{asignacion.numpizarras}}</td>
+            <td>{{asignacion.numinfocus}}</td>
+            <td>{{asignacion.numcomputadoras}}</td>
+
+            
+            <td>
+              <button (click)="Editar(asignacion)" class="btn btn-warning">Editar</button>
+              <button (click)="Delete(asignacion)" class="btn btn-danger" style="margin-left: 10px;">Delete</button>
+            </td>
+            </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
